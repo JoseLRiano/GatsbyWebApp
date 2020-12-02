@@ -19,7 +19,13 @@ const Map = ({ center, zoom }) => {
             setLoading(false);
         }
         fetchData()
-    }, [])
+    }, []);
+
+    const markers = data.map(point => {
+        return point.categories[0].id === 10 &&
+            <LocationMarker lat={point.geometries[0].coordinates[1]} lng={point.geometries[0].coordinates[0]} />  
+    });
+
 
     return (
         <div className="map">
@@ -30,7 +36,7 @@ const Map = ({ center, zoom }) => {
                 defaultCenter={center}
                 defaultZoom={zoom}
             >
-                <LocationMarker lat={center.lat} lng={center.lng} />
+                {markers}
             </GoogleMapReact> : <Loader />}
         </div>
     )

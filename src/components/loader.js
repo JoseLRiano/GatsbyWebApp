@@ -1,8 +1,12 @@
 import React from 'react'
+import loader from '../images/25.gif'
+import './loader.css';
+
 
 const Loader = () => {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>     
+        <div className="loader"> 
+            <img src={loader} alt="loading gif" />    
             <h1>Fetching Data...</h1>
         </div>
     )
