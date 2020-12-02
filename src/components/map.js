@@ -21,9 +21,17 @@ const Map = ({ center, zoom }) => {
         fetchData()
     }, []);
 
-    const markers = data.map(point => {
-        return point.categories[0].id === 10 &&
-            <LocationMarker lat={point.geometries[0].coordinates[1]} lng={point.geometries[0].coordinates[0]} />  
+    const markers = data.map((point, ind) => {
+        if(point.categories[0].id === 10) {
+            point.geometries.map((geo, index) => {console.log(geo); 
+                return <LocationMarker key={index} lat={geo.coordinates[1]} lng={geo.coordinates[1]} icon="stormIcon" />})
+        }else if (point.categories[0].id === 8){
+            return <LocationMarker key={ind} lat={point.geometries[0].coordinates[1]} lng={point.geometries[0].coordinates[0]} icon="fireIcon"/>
+        }
+            // }else if(point.categories[0].id === 12){
+        //     return <LocationMarker lat={point.geometries[0].coordinates[1]} lng={point.geometries[0].coordinates[0]} icon="summitIcon"/>
+        // }
+        return null
     });
 
 
