@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Option from "./button";
 
 const Header = ({ siteTitle }) => (
   <header
@@ -26,6 +27,7 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
+        <Option />
       </h1>
     </div>
   </header>

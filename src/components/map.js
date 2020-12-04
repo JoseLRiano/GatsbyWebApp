@@ -3,10 +3,13 @@ import GoogleMapReact from 'google-map-react';
 import axios from 'axios';
 import LocationMarker from './locationMarker';
 import Loader from './loader';
+import Info from './Info';
 import './map.css';
 
 
 const Map = ({ center, zoom }) => {
+
+    const [info, setInfo] = useState(null);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -23,10 +26,22 @@ const Map = ({ center, zoom }) => {
 
     const markers = data.map((point, ind) => {
         if(point.categories[0].id === 10) {
-            point.geometries.map((geo, index) => {console.log(geo); 
-                return <LocationMarker key={index} lat={geo.coordinates[1]} lng={geo.coordinates[1]} icon="stormIcon" />})
+            point.geometries.map((geo, index) => { 
+                return <LocationMarker 
+                    key={index} 
+                    lat={geo.coordinates[1]} 
+                    lng={geo.coordinates[0]} 
+                    icon="stormIcon" 
+                    onClick={() => setInfo({ title: point.title, date: geo.date})} 
+                />})
         }else if (point.categories[0].id === 8){
-            return <LocationMarker key={ind} lat={point.geometries[0].coordinates[1]} lng={point.geometries[0].coordinates[0]} icon="fireIcon"/>
+            return <LocationMarker 
+                key={ind} 
+                lat={point.geometries[0].coordinates[1]} 
+                lng={point.geometries[0].coordinates[0]} 
+                icon="fireIcon"
+                onClick={() => setInfo({ title: point.title, date: point.geometries[0].date})}
+            />
         }
             // }else if(point.categories[0].id === 12){
         //     return <LocationMarker lat={point.geometries[0].coordinates[1]} lng={point.geometries[0].coordinates[0]} icon="summitIcon"/>
@@ -46,6 +61,7 @@ const Map = ({ center, zoom }) => {
             >
                 {markers}
             </GoogleMapReact> : <Loader />}
+            {info && <Info info={info} />}
         </div>
     )
 }

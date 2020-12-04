@@ -1,4 +1,8 @@
-.location-icon {
+.stormIcon {
     font-size: 1.5rem;
-    color: dodgerblue;
+    color: rgb(8, 67, 125);
+}
+.fireIcon {
+    font-size: 1.5rem;
+    color: red;
 }
