@@ -3,10 +3,14 @@ import React from 'react'
 const button = ({option}) => {
     return (
         <div>
-        <label>Severe strom</label>
-           <input type="radio" checked={true}></input>
-        <label>Volcanos</label>
-        <input type="radio" checked={false}></input> 
+            <label>
+                Select: 
+                <select>
+                    <option value="strom">Severe Storm</option>
+                    <option value="fires">Wild Fires</option>
+                </select>
+            </label>
+
         </div>
     )
 }

@@ -8,10 +8,13 @@ import './locationMarker.css';
 
 
 const locationMarker = ({ lat, lng, onClick, icon }) => {
+    
+    const iconItem = icon === "summitIcon" ? summitIcon : fireIcon;
+    
     return (
         <div className="location-marker" onClick={onClick}>
-        {/* {console.log(typeof(icon))} */}
-            <Icon icon={icon === "stormIcon" ? stormIcon : icon === "fireIcon" ? fireIcon : summitIcon} className={icon} />
+        {/* {console.log(icon === "fireIcon" && "Hello")} */}
+            <Icon icon={iconItem} className={icon === "summitIcon" ? "summitIcon" : "fireIcon"} />
         </div>
     )
 }
