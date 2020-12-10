@@ -1,12 +1,12 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import Option from "./button";
+// import Option from "./button";
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: "#f5f5f5",
       // marginBottom: `1.45rem`,
     }}
   >
@@ -21,13 +21,13 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `#2f4f4f`,
             textDecoration: `none`,
           }}
         >
           {siteTitle}
         </Link>
-        <Option />
+        {/* <Option /> */}
       </h1>
     </div>
   </header>

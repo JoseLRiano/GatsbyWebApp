@@ -25,7 +25,7 @@ const Map = ({ center, zoom }) => {
     }, []);
 
     const markers = data.map((point, ind) => {
-        if(point.categories[0].id === 10) {
+        // if(point.categories[0].id === 10) {
             // point.geometries.map((geo, index) => { 
             //     console.log(geo);
             //     return <LocationMarker 
@@ -35,8 +35,9 @@ const Map = ({ center, zoom }) => {
             //         icon="stormIcon" 
             //         onClick={() => setInfo({ title: point.title, date: geo.date})} 
             //     />})
-        }
-        else if (point.categories[0].id === 8){
+        // }
+        // else 
+        if (point.categories[0].id === 8){
             return <LocationMarker 
                 key={ind} 
                 lat={point.geometries[0].coordinates[1]} 
@@ -45,14 +46,14 @@ const Map = ({ center, zoom }) => {
                 onClick={() => setInfo({ title: point.title, date: point.geometries[0].date})}
             />
         }
-            else if(point.categories[0].id === 12){
-                console.log(point)
-            return <LocationMarker 
-                key={ind}
-                lat={point.geometries[0].coordinates[1]} 
-                lng={point.geometries[0].coordinates[0]} 
-                icon="summitIcon"/>
-        }
+            // else if(point.categories[0].id === 12){
+            //     console.log(point)
+            // return <LocationMarker 
+            //     key={ind}
+            //     lat={point.geometries[0].coordinates[1]} 
+            //     lng={point.geometries[0].coordinates[0]} 
+            //     icon="summitIcon"/>
+        // }
         return null
     });
 
