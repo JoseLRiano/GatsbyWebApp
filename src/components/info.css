@@ -1,0 +1,15 @@
+.location-info{
+ position: absolute;
+ top: 2rem;
+ right: 2rem;
+ background-color:rgb(85, 48, 55);
+ padding: 2rem;
+ border-radius: 8px;
+ color: white;
+}
+
+.location-info ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none
+}
