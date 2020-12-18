@@ -24,6 +24,7 @@ const Map = ({ center, zoom }) => {
         fetchData()
     }, []);
 
+
     const markers = data.map((point, ind) => {
         // if(point.categories[0].id === 10) {
         //     point.geometries.map((geo, index) => { 
@@ -46,12 +47,12 @@ const Map = ({ center, zoom }) => {
                 onClick={() => setInfo({ title: point.title, date: point.geometries[0].date})}
             />
         }
-            else if(point.categories[0].id === 12){
-                console.log(point)
+            else if(point.categories[0].id === 12 && point.geometries[0].coordinates[0] !== undefined){
+            
             return <LocationMarker 
                 key={ind}
-                lat={point.geometries[0].coordinates[1]} 
-                lng={point.geometries[0].coordinates[0]} 
+                lat={point.geometries[0].coordinates[1]   } 
+                lng={point.geometries[0].coordinates[0] } 
                 icon="summitIcon"
                 onClick={() => setInfo( {title: point.title, date: null})}
                 />
